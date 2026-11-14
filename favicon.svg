@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#212428"/>
+  <rect x="8" y="8" width="48" height="48" fill="none" stroke="#b4723f" stroke-width="4"/>
+  <text x="32" y="42" font-family="Menlo, Consolas, monospace" font-size="22" font-weight="700" fill="#d08a52" text-anchor="middle" letter-spacing="1">IFTS</text>
+</svg>
