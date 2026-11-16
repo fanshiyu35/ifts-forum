@@ -2,169 +2,1337 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IFTS - International Forum on Transport Standards</title>
-  <meta name="description" content="International Forum on Transport Standards (IFTS) - an independent international forum organisation for transport standards practice. 14th edition, September 2026, Prague.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#12263a">
+  <title>IFTS — International Forum on Transport Standards</title>
+  <style>
+    :root {
+      --navy: #12263a;
+      --navy-light: #1b354d;
+      --navy-dark: #0b1928;
+      --orange: #d97706;
+      --orange-light: #f59e0b;
+      --cream: #f7f6f2;
+      --white: #ffffff;
+      --ink: #263747;
+      --muted: #74808a;
+      --line: #e4e5e3;
+      --soft: #eef1f2;
+      --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+
+    .site-header {
+      height: 84px;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      border: 1px solid rgba(255,255,255,.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange-light);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.35;
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .brand-description {
+      font-size: 11px;
+      color: #aebbc7;
+      letter-spacing: .3px;
+      margin-top: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 31px;
+    }
+
+    .main-nav a {
+      color: #d2dbe2;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color .2s;
+      position: relative;
+    }
+
+    .main-nav a:hover {
+      color: var(--orange-light);
+    }
+
+    .main-nav a:last-child {
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.35);
+      padding: 9px 17px;
+    }
+
+    .main-nav a:last-child:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    /* Hero */
+
+    .hero {
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(45,82,108,.55), transparent 42%),
+        linear-gradient(120deg, var(--navy-dark), var(--navy) 65%, #1a354d);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 100px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      right: -120px;
+      top: -200px;
+      box-shadow:
+        0 0 0 60px rgba(255,255,255,.018),
+        0 0 0 120px rgba(255,255,255,.018),
+        0 0 0 180px rgba(255,255,255,.012);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--orange);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #c2ced8;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    .hero h1 {
+      max-width: 820px;
+      font-size: clamp(42px, 6.2vw, 72px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -2.8px;
+      margin-bottom: 29px;
+    }
+
+    .hero h1::first-line {
+      color: var(--white);
+    }
+
+    .hero-description {
+      max-width: 760px;
+      color: #c0ccd5;
+      font-size: 16px;
+      line-height: 1.9;
+      font-weight: 400;
+      margin-bottom: 37px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: var(--orange);
+      color: white;
+      padding: 15px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-cta span {
+      font-size: 18px;
+    }
+
+    .hero-secondary {
+      color: #d5dfe6;
+      font-size: 13px;
+      padding: 12px 4px;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+      transition: color .2s;
+    }
+
+    .hero-secondary:hover {
+      color: var(--orange-light);
+    }
+
+    .hero-index {
+      position: absolute;
+      right: 0;
+      bottom: -50px;
+      color: rgba(255,255,255,.045);
+      font-size: clamp(150px, 23vw, 300px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -15px;
+      pointer-events: none;
+    }
+
+    /* Statistics */
+
+    .stats-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 35px 0;
+    }
+
+    .stat-item {
+      padding: 0 30px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 39px;
+      font-weight: 650;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 7px;
+      letter-spacing: .2px;
+    }
+
+    /* General sections */
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-cream {
+      background: var(--cream);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 25px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+
+    .section-number {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding-top: 12px;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 43px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -1.3px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 43px;
+      height: 3px;
+      background: var(--orange);
+      margin-top: 21px;
+    }
+
+    .section-body {
+      margin-left: 125px;
+    }
+
+    .intro-copy {
+      max-width: 900px;
+      color: #52616e;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .intro-copy p + p {
+      margin-top: 19px;
+    }
+
+    /* Governance and programme */
+
+    .information-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 48px;
+    }
+
+    .information-card {
+      background: #f6f7f7;
+      border: 1px solid #e9ebeb;
+      padding: 30px 31px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .information-card::before {
+      content: "";
+      width: 3px;
+      height: 38px;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: var(--orange);
+    }
+
+    .card-kicker {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 23px;
+    }
+
+    .info-group + .info-group {
+      border-top: 1px solid #dfe3e5;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8a969e;
+      margin-bottom: 8px;
+    }
+
+    .info-name {
+      font-size: 20px;
+      color: var(--navy);
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .info-description {
+      color: #66737e;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    /* Edition 2026 */
+
+    .edition-section {
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .edition-section::after {
+      content: "2026";
+      position: absolute;
+      right: -25px;
+      top: 20px;
+      font-size: clamp(140px, 23vw, 280px);
+      font-weight: 800;
+      letter-spacing: -15px;
+      line-height: 1;
+      color: rgba(255,255,255,.035);
+      pointer-events: none;
+    }
+
+    .edition-section .section-title {
+      color: white;
+    }
+
+    .edition-section .section-number {
+      color: var(--orange-light);
+    }
+
+    .edition-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .edition-intro {
+      max-width: 850px;
+      font-size: 16px;
+      line-height: 1.9;
+      color: #c4d0d9;
+      margin-bottom: 42px;
+    }
+
+    .edition-intro strong {
+      color: white;
+      font-weight: 600;
+    }
+
+    .keynote-card {
+      background: white;
+      color: var(--ink);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 35px;
+      position: relative;
+      border-left: 4px solid var(--orange);
+      box-shadow: 0 15px 45px rgba(0,0,0,.12);
+    }
+
+    .keynote-meta {
+      border-right: 1px solid var(--line);
+      padding-right: 25px;
+    }
+
+    .keynote-type {
+      display: inline-block;
+      background: #fff3e3;
+      color: #b96608;
+      font-size: 10px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      padding: 7px 10px;
+      margin-bottom: 17px;
+      text-transform: uppercase;
+    }
+
+    .keynote-date {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .keynote-main h3 {
+      color: var(--navy);
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -.5px;
+      margin-bottom: 18px;
+    }
+
+    .speaker-name {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .speaker-role {
+      color: #71808b;
+      font-size: 13px;
+      margin-bottom: 19px;
+    }
+
+    .keynote-note {
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: #7a858d;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .edition-link {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 27px;
+      font-size: 13px;
+      color: #bdcbd5;
+    }
+
+    .edition-link a {
+      color: var(--orange-light);
+      border-bottom: 1px solid rgba(245,158,11,.55);
+      padding-bottom: 2px;
+      margin-left: 4px;
+      font-weight: 600;
+    }
+
+    /* Working groups */
+
+    .working-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .working-card {
+      background: white;
+      padding: 35px 37px;
+      min-height: 195px;
+      position: relative;
+      transition: background .25s;
+    }
+
+    .working-card:hover {
+      background: #faf8f4;
+    }
+
+    .working-code {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      margin-bottom: 20px;
+    }
+
+    .working-card h3 {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -.3px;
+    }
+
+    .working-card p {
+      color: #74808a;
+      font-size: 13px;
+      line-height: 1.85;
+      max-width: 450px;
+    }
+
+    .working-card::after {
+      content: "";
+      position: absolute;
+      right: 28px;
+      top: 36px;
+      width: 22px;
+      height: 1px;
+      background: #d6dadd;
+    }
+
+    /* Publications */
+
+    .publication-section {
+      background: #f0f2f2;
+    }
+
+    .publication-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .publication-copy {
+      color: #65737e;
+      font-size: 15px;
+      line-height: 2;
+      max-width: 750px;
+    }
+
+    .publication-copy a {
+      color: #b96a0a;
+      border-bottom: 1px solid rgba(185,106,10,.5);
+      font-weight: 600;
+    }
+
+    .publication-mark {
+      height: 190px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .publication-mark::before,
+    .publication-mark::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.15);
+      transform: rotate(45deg);
+    }
+
+    .publication-mark::before {
+      width: 120px;
+      height: 120px;
+    }
+
+    .publication-mark::after {
+      width: 85px;
+      height: 85px;
+      border-color: rgba(217,119,6,.7);
+    }
+
+    .publication-mark span {
+      position: relative;
+      z-index: 1;
+      color: var(--orange-light);
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    /* Institutional strip */
+
+    .institution-strip {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 27px 0;
+    }
+
+    .institution-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .institution-label {
+      color: #929ca3;
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .institution-item {
+      color: #62717d;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .2px;
+      padding: 8px 14px;
+      border-left: 2px solid var(--orange);
+    }
+
+    /* Footer */
+
+    .site-footer {
+      background: var(--navy-dark);
+      color: white;
+      padding: 75px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 65px;
+      padding-bottom: 60px;
+    }
+
+    .footer-brand {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      margin-bottom: 17px;
+    }
+
+    .footer-brand span {
+      color: var(--orange-light);
+    }
+
+    .footer-description {
+      max-width: 330px;
+      color: #9eabb5;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .footer-heading {
+      font-size: 11px;
+      color: white;
+      letter-spacing: 1.3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 21px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9eabb5;
+      font-size: 12px;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange-light);
+    }
+
+    .footer-contact {
+      color: #9eabb5;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .footer-contact a:hover {
+      color: var(--orange-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding: 21px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #778793;
+      font-size: 11px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .main-nav {
+        gap: 17px;
+      }
+
+      .main-nav a {
+        font-size: 12px;
+      }
+
+      .section-body {
+        margin-left: 0;
+      }
+
+      .section-header {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .publication-layout {
+        grid-template-columns: 1fr 220px;
+        gap: 35px;
+      }
+
+      .footer-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 40px, 540px);
+      }
+
+      .site-header {
+        height: auto;
+        min-height: 75px;
+        padding: 14px 0;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 37px;
+        height: 37px;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .main-nav {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+        overflow-x: auto;
+        padding-bottom: 3px;
+      }
+
+      .main-nav a {
+        white-space: nowrap;
+        font-size: 11px;
+        margin-right: 15px;
+      }
+
+      .main-nav a:last-child {
+        padding: 5px 10px;
+      }
+
+      .hero {
+        padding: 70px 0 75px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+        letter-spacing: -1.8px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .hero-index {
+        font-size: 150px;
+        bottom: -20px;
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px 0;
+      }
+
+      .stat-item {
+        padding: 20px 15px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .stat-item:first-child {
+        padding-left: 15px;
+      }
+
+      .stat-number {
+        font-size: 32px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 32px;
+      }
+
+      .section-number {
+        padding-top: 0;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .information-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 32px;
+      }
+
+      .information-card {
+        padding: 27px 24px;
+      }
+
+      .keynote-card {
+        grid-template-columns: 1fr;
+        padding: 27px 25px;
+        gap: 22px;
+      }
+
+      .keynote-meta {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding: 0 0 18px;
+      }
+
+      .keynote-main h3 {
+        font-size: 20px;
+      }
+
+      .working-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .working-card {
+        min-height: auto;
+        padding: 29px 25px;
+      }
+
+      .publication-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .publication-mark {
+        height: 130px;
+      }
+
+      .institution-inner {
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .institution-label {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      .institution-item {
+        font-size: 11px;
+        padding: 5px 9px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html">
-      <div class="brand-mark">IFTS</div>
-      <div class="brand-text">
-        <div class="brand-name">International Forum on Transport Standards</div>
-        <div class="brand-sub">Independent forum organisation &middot; Founded 2012</div>
-      </div>
-    </a>
-    <nav class="site-nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="history/">History</a></li>
-        <li><a href="2026/">Edition 2026</a></li>
-        <li><a href="archive/">Archive</a></li>
-        <li><a href="speakers/">Speakers</a></li>
-        <li><a href="contact/">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="brand">
+        <div class="brand-mark">IFTS</div>
+        <div class="brand-copy">
+          <span class="brand-name">IFTS</span>
+          <span class="brand-description">International Forum on Transport Standards</span>
+          <span class="brand-description">Independent forum organisation &middot; Founded 2012</span>
+        </div>
+      </a>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-kicker">IFTS / Edition 14 / September 2026</div>
-    <h1>A standing international dialogue on <span class="copper">transport standards practice</span></h1>
-    <p class="lede">Since 2012, the International Forum on Transport Standards has brought together researchers, transport operators, industry practitioners and public authorities to compare how transport performance is measured, ranked and reported across systems and countries.</p>
-    <div class="hero-actions">
-      <a class="btn btn-solid" href="2026/">Edition 2026 - September 2026, Prague</a>
-      <a class="btn" href="history/">History &amp; scale</a>
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#history">History</a>
+        <a href="#edition">Edition 2026</a>
+        <a href="#publications">Archive</a>
+        <a href="#edition">Speakers</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<div class="stats-strip">
-  <div class="stats-inner">
-    <div class="stat"><div class="num">14</div><div class="lbl">Editions 2013-2026</div></div>
-    <div class="stat"><div class="num">41</div><div class="lbl">Countries represented</div></div>
-    <div class="stat"><div class="num">3,000+</div><div class="lbl">Delegates since 2013</div></div>
-    <div class="stat"><div class="num">4</div><div class="lbl">Standing working groups</div></div>
-  </div>
-</div>
+  <main>
 
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-index">01 /</span>
-      <h2 class="section-title">About the Forum</h2>
-    </div>
-    <p>The International Forum on Transport Standards (IFTS) is an independent, not-for-profit international forum organisation founded in 2012 at an assembly in Prague attended by 31 participants from 9 countries. The Forum is a dialogue and comparison platform: it develops position papers, practice notes and recommendations for voluntary adoption by its participants. IFTS does not issue standards and is not a standardisation body.</p>
-    <p>The Forum convenes once a year. Each edition combines a keynote programme, thematic working group sessions, and the adoption of Forum Conclusions recording the year's shared positions. Editions rotate among European host cities and have been held both on site and online.</p>
-    <div class="grid-2" style="margin-top: 28px;">
-      <div class="card">
-        <span class="tag">Governance</span>
-        <h3>Forum Chair</h3>
-        <p><strong>Vil&eacute;m Sko&#269;dopole</strong> (Czechia) - Forum Chair since 2021. Transport engineer and standards practitioner with 25 years in network planning, performance measurement and reporting practice.</p>
-        <h3>Secretariat</h3>
-        <p><strong>Bianca Marinello</strong> (Italy) - Secretary General, IFTS Secretariat, Prague.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Programme</span>
-        <h3>Programme Council</h3>
-        <p>The Programme Council sets the annual theme, reviews the keynote programme and oversees the working groups. Council members serve in a personal capacity and are drawn from research, industry and transport authorities across the participating countries.</p>
-        <h3>Working groups</h3>
-        <p>WG1 Data Interoperability &middot; WG2 Performance Measurement &amp; Benchmarking &middot; WG3 Scenario Analysis &amp; Reporting &middot; WG4 Workforce &amp; Competence.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">IFTS / Edition 14 / September 2026</div>
 
-<section class="section section-alt">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-index">02 /</span>
-      <h2 class="section-title">Edition 2026 - Prague</h2>
-    </div>
-    <p>The 14th edition of the Forum took place in <strong>September 2026</strong> at the Tessera Congress Centre, Prague. The theme of the edition is <strong>Ranking Stability in Standards Practice</strong>.</p>
-    <div class="keynote" style="margin-top: 28px;">
-      <div class="k-label">Keynote lecture &middot; September 2026</div>
-      <h2>Stability Testing for Transport Performance Rankings: A Multivariate Approach to Scenario Reporting</h2>
-      <div class="k-person">Ms. Yanxi Liu</div>
-      <div class="k-affil">Research Fellow, National Transport Research Programme (NTRP)</div>
-      <div class="k-note">Keynote lecture delivered by personal invitation of the Forum Chair, Vil&eacute;m Sko&#269;dopole.</div>
-    </div>
-    <p class="small muted" style="margin-top: 18px;">Full programme, working group sessions and venue details: <a href="2026/">Edition 2026 page</a>.</p>
-  </div>
-</section>
+          <h1>A standing international dialogue on<br> transport standards practice</h1>
 
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-index">03 /</span>
-      <h2 class="section-title">Working Groups</h2>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <h3>WG1 &middot; Data Interoperability</h3>
-        <p>Common vocabularies, reference data structures and exchange practice for multimodal transport information.</p>
-      </div>
-      <div class="card">
-        <h3>WG2 &middot; Performance Measurement</h3>
-        <p>Comparable service quality indicators and benchmarking methods across modes, networks and countries.</p>
-      </div>
-      <div class="card">
-        <h3>WG3 &middot; Scenario Analysis &amp; Reporting</h3>
-        <p>Frameworks for scenario-based evaluation, ranking of alternatives, and the stability of reported rankings.</p>
-      </div>
-      <div class="card">
-        <h3>WG4 &middot; Workforce &amp; Competence</h3>
-        <p>Skills profiles and competence requirements for standards-related roles in transport planning and operations.</p>
-      </div>
-    </div>
-  </div>
-</section>
+          <p class="hero-description">
+            Since 2012, the International Forum on Transport Standards has brought together researchers, transport operators, industry practitioners and public authorities to compare how transport performance is measured, ranked and reported across systems and countries.
+          </p>
 
-<section class="section section-dark">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-index">04 /</span>
-      <h2 class="section-title">Publications</h2>
-    </div>
-    <p>Each edition concludes with the adoption of Forum Conclusions and the release of the annual IFTS Position Paper. Position Papers summarise the state of practice discussed during the edition and record the Forum's recommendations for voluntary adoption. All papers are published on this website in the <a href="archive/" style="color:#d08a52;">edition archive</a>.</p>
-  </div>
-</section>
+          <div class="hero-bottom">
+            <a href="#edition" class="hero-cta">
+              Edition 2026 - September 2026, Prague
+              <span>&rarr;</span>
+            </a>
+            <a href="#history" class="hero-secondary">History &amp; scale</a>
+          </div>
+        </div>
+        <div class="hero-index">14</div>
+      </div>
+    </section>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <h4>International Forum on Transport Standards</h4>
-      <p>An independent international forum organisation for transport standards practice. Founded 2012, Prague.</p>
+    <section class="stats-section">
+      <div class="container stats-inner">
+        <div class="stat-item">
+          <span class="stat-number">14</span>
+          <div class="stat-label">Editions 2013-2026</div>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-number">41</span>
+          <div class="stat-label">Countries represented</div>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-number">3,000+</span>
+          <div class="stat-label">Delegates since 2013</div>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <div class="stat-label">Standing working groups</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="history">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-number">01 /</div>
+          <h2 class="section-title">About the Forum</h2>
+        </div>
+
+        <div class="section-body">
+          <div class="intro-copy">
+            <p>
+              The International Forum on Transport Standards (IFTS) is an independent, not-for-profit international forum organisation founded in 2012 at an assembly in Prague attended by 31 participants from 9 countries. The Forum is a dialogue and comparison platform: it develops position papers, practice notes and recommendations for voluntary adoption by its participants. IFTS does not issue standards and is not a standardisation body.
+            </p>
+
+            <p>
+              The Forum convenes once a year. Each edition combines a keynote programme, thematic working group sessions, and the adoption of Forum Conclusions recording the year's shared positions. Editions rotate among European host cities and have been held both on site and online.
+            </p>
+          </div>
+
+          <div class="information-grid">
+
+            <article class="information-card">
+              <div class="card-kicker">Governance</div>
+
+              <div class="info-group">
+                <div class="info-label">Forum Chair</div>
+                <h3 class="info-name">Vil&eacute;m Sko&#269;dopole</h3>
+                <p class="info-description">
+                  (Czechia) - Forum Chair since 2021. Transport engineer and standards practitioner with 25 years in network planning, performance measurement and reporting practice.
+                </p>
+              </div>
+
+              <div class="info-group">
+                <div class="info-label">Secretariat</div>
+                <h3 class="info-name">Bianca Marinello</h3>
+                <p class="info-description">
+                  (Italy) - Secretary General, IFTS Secretariat, Prague.
+                </p>
+              </div>
+            </article>
+
+            <article class="information-card">
+              <div class="card-kicker">Programme</div>
+
+              <div class="info-group">
+                <div class="info-label">Programme Council</div>
+                <p class="info-description">
+                  The Programme Council sets the annual theme, reviews the keynote programme and oversees the working groups. Council members serve in a personal capacity and are drawn from research, industry and transport authorities across the participating countries.
+                </p>
+              </div>
+
+              <div class="info-group">
+                <div class="info-label">Working groups</div>
+                <p class="info-description">
+                  WG1 Data Interoperability &middot; WG2 Performance Measurement &amp; Benchmarking &middot; WG3 Scenario Analysis &amp; Reporting &middot; WG4 Workforce &amp; Competence.
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section edition-section" id="edition">
+      <div class="container edition-content">
+
+        <div class="section-header">
+          <div class="section-number">02 /</div>
+          <h2 class="section-title">Edition 2026 - Prague</h2>
+        </div>
+
+        <div class="section-body">
+          <p class="edition-intro">
+            The 14th edition of the Forum took place in
+            <strong>September 2026</strong>
+            at the Tessera Congress Centre, Prague. The theme of the edition is
+            <strong>Ranking Stability in Standards Practice</strong>.
+          </p>
+
+          <article class="keynote-card">
+            <div class="keynote-meta">
+              <div class="keynote-type">Keynote lecture</div>
+              <div class="keynote-date">September 2026</div>
+            </div>
+
+            <div class="keynote-main">
+              <h3>Stability Testing for Transport Performance Rankings: A Multivariate Approach to Scenario Reporting</h3>
+
+              <div class="speaker-name">Ms. Yanxi Liu</div>
+              <div class="speaker-role">Research Fellow, National Transport Research Programme (NTRP)</div>
+
+              <p class="keynote-note">
+                Keynote lecture delivered by personal invitation of the Forum Chair, Vil&eacute;m Sko&#269;dopole.
+              </p>
+            </div>
+          </article>
+
+          <div class="edition-link">
+            Full programme, working group sessions and venue details:
+            <a href="#edition">Edition 2026 page</a>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="working-groups">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="section-number">03 /</div>
+          <h2 class="section-title">Working Groups</h2>
+        </div>
+
+        <div class="section-body">
+          <div class="working-grid">
+
+            <article class="working-card">
+              <div class="working-code">WG1 &middot; Data Interoperability</div>
+              <h3>Data Interoperability</h3>
+              <p>
+                Common vocabularies, reference data structures and exchange practice for multimodal transport information.
+              </p>
+            </article>
+
+            <article class="working-card">
+              <div class="working-code">WG2 &middot; Performance Measurement</div>
+              <h3>Performance Measurement</h3>
+              <p>
+                Comparable service quality indicators and benchmarking methods across modes, networks and countries.
+              </p>
+            </article>
+
+            <article class="working-card">
+              <div class="working-code">WG3 &middot; Scenario Analysis &amp; Reporting</div>
+              <h3>Scenario Analysis &amp; Reporting</h3>
+              <p>
+                Frameworks for scenario-based evaluation, ranking of alternatives, and the stability of reported rankings.
+              </p>
+            </article>
+
+            <article class="working-card">
+              <div class="working-code">WG4 &middot; Workforce &amp; Competence</div>
+              <h3>Workforce &amp; Competence</h3>
+              <p>
+                Skills profiles and competence requirements for standards-related roles in transport planning and operations.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section publication-section" id="publications">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="section-number">04 /</div>
+          <h2 class="section-title">Publications</h2>
+        </div>
+
+        <div class="section-body">
+          <div class="publication-layout">
+            <p class="publication-copy">
+              Each edition concludes with the adoption of Forum Conclusions and the release of the annual IFTS Position Paper. Position Papers summarise the state of practice discussed during the edition and record the Forum's recommendations for voluntary adoption. All papers are published on this website in the
+              <a href="#publications">edition archive</a>.
+            </p>
+
+            <div class="publication-mark" aria-hidden="true">
+              <span>IFTS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="institution-strip">
+      <div class="container institution-inner">
+        <div class="institution-label">International Forum Network</div>
+        <div class="institution-item">Research</div>
+        <div class="institution-item">Industry</div>
+        <div class="institution-item">Transport authorities</div>
+        <div class="institution-item">Transport operators</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-brand"><span>IFTS</span> International Forum on Transport Standards</div>
+          <p class="footer-description">
+            An independent international forum organisation for transport standards practice. Founded 2012, Prague.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Site</h3>
+          <ul class="footer-links">
+            <li><a href="#history">History</a></li>
+            <li><a href="#edition">Edition 2026</a></li>
+            <li><a href="#publications">Archive</a></li>
+            <li><a href="#edition">Speakers</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Secretariat</h3>
+          <div class="footer-contact">
+            IFTS Secretariat, P.O. Box 77<br>
+            110 00 Prague 1, Czechia<br>
+            <a href="mailto:secretariat@ifts-forum.org">secretariat@ifts-forum.org</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2012-2026 International Forum on Transport Standards</span>
+      </div>
+
     </div>
-    <div>
-      <h4>Site</h4>
-      <ul>
-        <li><a href="history/">History</a></li>
-        <li><a href="2026/">Edition 2026</a></li>
-        <li><a href="archive/">Archive</a></li>
-        <li><a href="speakers/">Speakers</a></li>
-        <li><a href="contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Secretariat</h4>
-      <ul>
-        <li>IFTS Secretariat, P.O. Box 77</li>
-        <li>110 00 Prague 1, Czechia</li>
-        <li><a href="mailto:secretariat@ifts-forum.org">secretariat@ifts-forum.org</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2012-2026 International Forum on Transport Standards</span>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>

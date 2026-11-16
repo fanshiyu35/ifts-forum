@@ -1,47 +1,966 @@
-<!DOCTYPE html>
+<escape char="\\"><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page not found - IFTS</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#12263a">
+  <title>404 — Page Not Found | IFTS</title>
+  <style>
+    :root {
+      --navy: #12263a;
+      --navy-light: #1b354d;
+      --navy-dark: #0b1928;
+      --orange: #d97706;
+      --orange-light: #f59e0b;
+      --cream: #f7f6f2;
+      --white: #ffffff;
+      --ink: #263747;
+      --muted: #74808a;
+      --line: #e4e5e3;
+      --soft: #eef1f2;
+      --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+
+    .site-header {
+      height: 84px;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      border: 1px solid rgba(255,255,255,.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange-light);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.35;
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .brand-description {
+      font-size: 11px;
+      color: #aebbc7;
+      letter-spacing: .3px;
+      margin-top: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 31px;
+    }
+
+    .main-nav a {
+      color: #d2dbe2;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color .2s;
+      position: relative;
+    }
+
+    .main-nav a:hover {
+      color: var(--orange-light);
+    }
+
+    .main-nav a:last-child {
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.35);
+      padding: 9px 17px;
+    }
+
+    .main-nav a:last-child:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    /* Hero */
+
+    .hero {
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(45,82,108,.55), transparent 42%),
+        linear-gradient(120deg, var(--navy-dark), var(--navy) 65%, #1a354d);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 100px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      right: -120px;
+      top: -200px;
+      box-shadow:
+        0 0 0 60px rgba(255,255,255,.018),
+        0 0 0 120px rgba(255,255,255,.018),
+        0 0 0 180px rgba(255,255,255,.012);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--orange);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #c2ced8;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    .hero h1 {
+      max-width: 820px;
+      font-size: clamp(42px, 6.2vw, 72px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -2.8px;
+      margin-bottom: 29px;
+    }
+
+    .hero h1::first-line {
+      color: var(--white);
+    }
+
+    .hero-description {
+      max-width: 760px;
+      color: #c0ccd5;
+      font-size: 16px;
+      line-height: 1.9;
+      font-weight: 400;
+      margin-bottom: 37px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: var(--orange);
+      color: white;
+      padding: 15px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-cta span {
+      font-size: 18px;
+    }
+
+    .hero-secondary {
+      color: #d5dfe6;
+      font-size: 13px;
+      padding: 12px 4px;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+      transition: color .2s;
+    }
+
+    .hero-secondary:hover {
+      color: var(--orange-light);
+    }
+
+    .hero-index {
+      position: absolute;
+      right: 0;
+      bottom: -50px;
+      color: rgba(255,255,255,.045);
+      font-size: clamp(150px, 23vw, 300px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -15px;
+      pointer-events: none;
+    }
+
+    /* Statistics */
+
+    .stats-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 35px 0;
+    }
+
+    .stat-item {
+      padding: 0 30px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 39px;
+      font-weight: 650;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 7px;
+      letter-spacing: .2px;
+    }
+
+    /* General sections */
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-cream {
+      background: var(--cream);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 25px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+
+    .section-number {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding-top: 12px;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 43px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -1.3px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 43px;
+      height: 3px;
+      background: var(--orange);
+      margin-top: 21px;
+    }
+
+    .section-body {
+      margin-left: 125px;
+    }
+
+    .intro-copy {
+      max-width: 900px;
+      color: #52616e;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .intro-copy p + p {
+      margin-top: 19px;
+    }
+
+    /* Governance and programme */
+
+    .information-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 48px;
+    }
+
+    .information-card {
+      background: #f6f7f7;
+      border: 1px solid #e9ebeb;
+      padding: 30px 31px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .information-card::before {
+      content: "";
+      width: 3px;
+      height: 38px;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: var(--orange);
+    }
+
+    .card-kicker {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 23px;
+    }
+
+    .info-group + .info-group {
+      border-top: 1px solid #dfe3e5;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8a969e;
+      margin-bottom: 8px;
+    }
+
+    .info-name {
+      font-size: 20px;
+      color: var(--navy);
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .info-description {
+      color: #66737e;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    /* Edition 2026 */
+
+    .edition-section {
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .edition-section::after {
+      content: "2026";
+      position: absolute;
+      right: -25px;
+      top: 20px;
+      font-size: clamp(140px, 23vw, 280px);
+      font-weight: 800;
+      letter-spacing: -15px;
+      line-height: 1;
+      color: rgba(255,255,255,.035);
+      pointer-events: none;
+    }
+
+    .edition-section .section-title {
+      color: white;
+    }
+
+    .edition-section .section-number {
+      color: var(--orange-light);
+    }
+
+    .edition-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .edition-intro {
+      max-width: 850px;
+      font-size: 16px;
+      line-height: 1.9;
+      color: #c4d0d9;
+      margin-bottom: 42px;
+    }
+
+    .edition-intro strong {
+      color: white;
+      font-weight: 600;
+    }
+
+    .keynote-card {
+      background: white;
+      color: var(--ink);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 35px;
+      position: relative;
+      border-left: 4px solid var(--orange);
+      box-shadow: 0 15px 45px rgba(0,0,0,.12);
+    }
+
+    .keynote-meta {
+      border-right: 1px solid var(--line);
+      padding-right: 25px;
+    }
+
+    .keynote-type {
+      display: inline-block;
+      background: #fff3e3;
+      color: #b96608;
+      font-size: 10px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      padding: 7px 10px;
+      margin-bottom: 17px;
+      text-transform: uppercase;
+    }
+
+    .keynote-date {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .keynote-main h3 {
+      color: var(--navy);
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -.5px;
+      margin-bottom: 18px;
+    }
+
+    .speaker-name {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .speaker-role {
+      color: #71808b;
+      font-size: 13px;
+      margin-bottom: 19px;
+    }
+
+    .keynote-note {
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: #7a858d;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .edition-link {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 27px;
+      font-size: 13px;
+      color: #bdcbd5;
+    }
+
+    .edition-link a {
+      color: var(--orange-light);
+      border-bottom: 1px solid rgba(245,158,11,.55);
+      padding-bottom: 2px;
+      margin-left: 4px;
+      font-weight: 600;
+    }
+
+    /* Working groups */
+
+    .working-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .working-card {
+      background: white;
+      padding: 35px 37px;
+      min-height: 195px;
+      position: relative;
+      transition: background .25s;
+    }
+
+    .working-card:hover {
+      background: #faf8f4;
+    }
+
+    .working-code {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      margin-bottom: 20px;
+    }
+
+    .working-card h3 {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    /* 404 Page */
+
+    .not-found-section {
+      min-height: calc(100vh - 164px);
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(45,82,108,.55), transparent 42%),
+        linear-gradient(120deg, var(--navy-dark), var(--navy) 65%, #1a354d);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 105px 0 115px;
+    }
+
+    .not-found-section::before {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      right: -120px;
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow:
+        0 0 0 60px rgba(255,255,255,.018),
+        0 0 0 120px rgba(255,255,255,.018),
+        0 0 0 180px rgba(255,255,255,.012);
+    }
+
+    .not-found-section::after {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--orange);
+    }
+
+    .not-found-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .not-found-content .eyebrow {
+      margin-bottom: 32px;
+    }
+
+    .not-found-content h1 {
+      color: var(--white);
+      font-size: clamp(43px, 6.5vw, 76px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -2.8px;
+      margin-bottom: 27px;
+    }
+
+    .not-found-description {
+      max-width: 620px;
+      color: #c0ccd5;
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 37px;
+    }
+
+    .not-found-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: var(--orange);
+      color: var(--white);
+      padding: 15px 23px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+
+    .not-found-action:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+    }
+
+    .not-found-action span {
+      font-size: 18px;
+      transition: transform .2s;
+    }
+
+    .not-found-action:hover span {
+      transform: translateX(4px);
+    }
+
+    .not-found-number {
+      position: absolute;
+      right: -5px;
+      bottom: -70px;
+      color: rgba(255,255,255,.045);
+      font-size: clamp(180px, 30vw, 380px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -20px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      background: var(--navy-dark);
+      color: #aebbc7;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 29px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-copyright {
+      color: #aebbc7;
+      font-size: 12px;
+      letter-spacing: .2px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .container {
+        width: min(100% - 48px, 1160px);
+      }
+
+      .main-nav {
+        gap: 19px;
+      }
+
+      .section-body {
+        margin-left: 0;
+      }
+
+      .section-header {
+        grid-template-columns: 75px 1fr;
+        gap: 20px;
+      }
+
+      .information-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .keynote-card {
+        grid-template-columns: 150px 1fr;
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: calc(100% - 40px);
+      }
+
+      .site-header {
+        height: auto;
+        min-height: 84px;
+        padding: 17px 0;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 17px;
+      }
+
+      .brand {
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 39px;
+        height: 39px;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .brand-description {
+        font-size: 10px;
+      }
+
+      .main-nav {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .main-nav a {
+        font-size: 11px;
+      }
+
+      .main-nav a:last-child {
+        padding: 6px 9px;
+      }
+
+      .hero {
+        padding: 75px 0 80px;
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 11vw, 58px);
+        letter-spacing: -1.8px;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 35px;
+      }
+
+      .section-number {
+        padding-top: 0;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .working-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .keynote-card {
+        grid-template-columns: 1fr;
+        padding: 27px 25px;
+        gap: 24px;
+      }
+
+      .keynote-meta {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding-right: 0;
+        padding-bottom: 20px;
+      }
+
+      .not-found-section {
+        min-height: calc(100vh - 185px);
+        padding: 85px 0 95px;
+      }
+
+      .not-found-content h1 {
+        font-size: clamp(42px, 11vw, 59px);
+        letter-spacing: -1.8px;
+      }
+
+      .not-found-number {
+        right: -10px;
+        bottom: -25px;
+        font-size: 190px;
+        letter-spacing: -12px;
+      }
+
+      .not-found-section::before {
+        width: 360px;
+        height: 360px;
+        right: -200px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html">
-      <div class="brand-mark">IFTS</div>
-      <div class="brand-text">
-        <div class="brand-name">International Forum on Transport Standards</div>
-        <div class="brand-sub">Independent forum organisation &middot; Founded 2012</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="IFTS Home">
+        <div class="brand-mark">IFTS</div>
+        <div class="brand-copy">
+          <span class="brand-name">IFTS</span>
+          <span class="brand-description">International Forum on Transport Standards</span>
+          <span class="brand-description">Independent forum organisation &middot; Founded 2012</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/history/">History</a>
+        <a href="/edition-2026/">Edition 2026</a>
+        <a href="/archive/">Archive</a>
+        <a href="/speakers/">Speakers</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="not-found-section">
+      <div class="container">
+        <div class="not-found-content">
+          <div class="eyebrow">IFTS / 404</div>
+
+          <h1>Page not found</h1>
+
+          <p class="not-found-description">
+            The page you are looking for does not exist in the IFTS site.
+          </p>
+
+          <a href="/" class="not-found-action">
+            Return to home
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+        <div class="not-found-number" aria-hidden="true">404</div>
       </div>
-    </a>
-    <nav class="site-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="history/">History</a></li>
-        <li><a href="2026/">Edition 2026</a></li>
-        <li><a href="archive/">Archive</a></li>
-        <li><a href="speakers/">Speakers</a></li>
-        <li><a href="contact/">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-kicker">IFTS / 404</div>
-    <h1>Page not found</h1>
-    <p class="lede">The page you are looking for does not exist in the IFTS site.</p>
-    <div class="hero-actions"><a class="btn" href="index.html">Return to home</a></div>
-  </div>
-</section>
-<footer class="site-footer">
-  <div class="footer-bottom">
-    <span>&copy; 2012-2026 International Forum on Transport Standards</span>
-  </div>
-</footer>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copyright">
+        &copy; 2012-2026 International Forum on Transport Standards
+      </p>
+    </div>
+  </footer>
+
 </body>
 </html>
