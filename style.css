@@ -1,21 +1,23 @@
 /* IFTS - International Forum on Transport Standards
-   Design system: dark graphite + copper. Independent of all sibling sites. */
+   Design system: deep navy hero + copper accent, Helvetica Neue throughout.
+   Central-European industry forum look — dark business, modern.
+   Independent of all sibling sites. */
 
 :root {
-  --ink: #212428;
-  --ink-2: #17191c;
-  --ink-soft: #2d3137;
-  --line: #3e434b;
-  --paper: #f5f2ea;
-  --paper-soft: #ece8dd;
-  --card: #fbf9f3;
+  --ink: #1c2836;
+  --ink-2: #121b26;
+  --ink-soft: #23303f;
+  --line: #3a4b5f;
+  --paper: #faf7f2;
+  --paper-soft: #f2ecdf;
+  --card: #ffffff;
   --copper: #b4723f;
   --copper-bright: #d08a52;
   --copper-dim: #8f5a31;
   --text: #2a2d31;
   --muted: #6d7279;
-  --mono: "SF Mono", "Menlo", "Consolas", monospace;
-  --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -105,7 +107,7 @@ a:hover { color: var(--copper-bright); }
 .hero {
   background: var(--ink);
   color: #e8e6df;
-  padding: 72px 28px 64px;
+  padding: 76px 28px 68px;
 }
 
 .hero-inner { max-width: 1080px; margin: 0 auto; }
@@ -113,6 +115,7 @@ a:hover { color: var(--copper-bright); }
 .hero-kicker {
   font-family: var(--mono);
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--copper-bright);
@@ -120,7 +123,7 @@ a:hover { color: var(--copper-bright); }
 }
 
 .hero h1 {
-  font-size: 44px;
+  font-size: 46px;
   line-height: 1.12;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -147,13 +150,14 @@ a:hover { color: var(--copper-bright); }
   text-transform: uppercase;
   padding: 12px 22px;
   border: 1px solid var(--copper);
+  border-radius: 4px;
   color: var(--copper-bright);
   background: transparent;
 }
 
-.btn:hover { background: var(--copper); color: #17191c; }
+.btn:hover { background: var(--copper); color: #1c2836; }
 
-.btn-solid { background: var(--copper); color: #17191c; }
+.btn-solid { background: var(--copper); color: #1c2836; }
 .btn-solid:hover { background: var(--copper-bright); }
 
 /* ---------- Stats strip ---------- */
@@ -193,7 +197,7 @@ a:hover { color: var(--copper-bright); }
 
 .section { padding: 64px 28px; }
 
-.section-alt { background: var(--paper-soft); border-top: 1px solid #ded9cb; border-bottom: 1px solid #ded9cb; }
+.section-alt { background: var(--paper-soft); border-top: 1px solid #e9e1cf; border-bottom: 1px solid #e9e1cf; }
 
 .section-dark { background: var(--ink); color: #e8e6df; }
 
@@ -211,6 +215,7 @@ a:hover { color: var(--copper-bright); }
 .section-index {
   font-family: var(--mono);
   font-size: 13px;
+  font-weight: 700;
   color: var(--copper-dim);
   letter-spacing: 0.1em;
 }
@@ -234,7 +239,7 @@ a:hover { color: var(--copper-bright); }
 
 .card {
   background: var(--card);
-  border: 1px solid #d8d3c6;
+  border: 1px solid #e6dfcf;
   border-top: 3px solid var(--copper);
   padding: 24px;
 }
@@ -248,6 +253,7 @@ a:hover { color: var(--copper-bright); }
 
 .card h3 {
   font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
@@ -262,10 +268,11 @@ a:hover { color: var(--copper-bright); }
   display: inline-block;
   font-family: var(--mono);
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--copper-dim);
-  border: 1px solid #d8d3c6;
+  border: 1px solid #e6dfcf;
   padding: 3px 8px;
   margin-bottom: 10px;
 }
@@ -283,6 +290,7 @@ table.standard {
 table.standard th {
   font-family: var(--mono);
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: left;
@@ -294,7 +302,7 @@ table.standard th {
 
 table.standard td {
   padding: 12px 14px;
-  border-bottom: 1px solid #ded9cb;
+  border-bottom: 1px solid #e9e1cf;
   vertical-align: top;
 }
 
@@ -319,12 +327,13 @@ td .year {
 .keynote .k-label {
   font-family: var(--mono);
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--copper-bright);
 }
 
-.keynote h2 { font-size: 28px; margin: 14px 0 6px; }
+.keynote h2 { font-size: 28px; font-weight: 700; margin: 14px 0 6px; }
 
 .keynote .k-person {
   font-size: 17px;
@@ -348,6 +357,7 @@ td .year {
 
 .program-day h3 {
   font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 14px;
@@ -368,7 +378,7 @@ td .year {
 
 .contact-block {
   background: var(--card);
-  border: 1px solid #d8d3c6;
+  border: 1px solid #e6dfcf;
   border-top: 3px solid var(--copper);
   padding: 28px;
   margin-bottom: 22px;
@@ -376,6 +386,7 @@ td .year {
 
 .contact-block h3 {
   font-size: 14px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -403,6 +414,7 @@ td .year {
 
 .footer-inner h4 {
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #c9cdd3;
